@@ -1,0 +1,99 @@
+* {
+  margin: 0;
+  padding: 0;
+
+  font-family: sans-serif, Times, serif;
+  text-align: center;
+  font-size: 30px;
+  font-weight: bold;
+  text-decoration: none;
+  user-select: none; /*doesn't work on all browsers*/
+  color: black;
+}
+
+.everything {
+  position: absolute;
+  display: flex;
+  flex-direction: row;
+  
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
+
+.settings-wrapper {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+.settings {
+  display: flex;
+  flex-direction: column;
+  background-color:rgb(220, 200, 180);
+}
+
+.slider-wrapper:hover {
+  background-color: rgb(200, 180, 160);
+}
+
+.slider-wrapper:active {
+  background-color: rgb(80, 60, 40);
+}
+
+.slider-wrapper:active #densityText, .slider-wrapper:active #densityValue {
+  color: white;
+}
+
+.slider {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+}
+
+/* .slider:active {
+  outline: none;
+} */
+
+.button {
+  position: relative;
+  display: block;
+  background-color:rgb(220, 200, 180);
+  padding: 16px 32px;
+}
+
+.button:hover {
+  background-color: rgb(200, 180, 160);
+}
+
+.button:active {
+  background-color: rgb(80, 60, 40);
+  color: white;
+}
+
+.check-pair-container {
+  display: flex;
+}
+
+input[type="checkbox"] {
+  display: none;
+  padding: 10px;
+  margin: 100px;
+  width: 300px;
+  height: 300px;
+}
+
+label {
+  display: inline-block;
+  width: 20px;
+  height: 20px;
+  border: 1px solid black;
+  text-align: center;
+  line-height: 20px;
+  font-size: 24px;
+}
+
+input[type="checkbox"]:checked + label {
+  background-color: rgb(80, 60, 40);
+  color: white;
+}

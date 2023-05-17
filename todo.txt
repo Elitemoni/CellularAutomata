@@ -1,0 +1,10 @@
+Todo
+
+Define better way to determine how each rgb 
+changes in defineColorGradient()
+
+change rulestep to account for more than dead/alive
+
+Play/Pause button should be the same button
+
+Make a delay slider, nice feature to see the speed change realtime

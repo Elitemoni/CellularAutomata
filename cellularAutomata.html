@@ -1,0 +1,123 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Cellular Automata</title>
+</head>
+<body>
+    <!-- <div>Awesome Cellular Automata</div> -->
+    <div class="everything">
+        <canvas id="gridCanvas" width= "800px" height= "800px"></canvas>
+        <div class="settings-wrapper">
+            <div class="settings">
+                <div class="slider-wrapper">
+                    <div id="densityText">Density</div>
+                    <div id="densityValue">0</div>
+                    <div class="slider">
+                        <input type="range" id="slider" min="0" max="100" value="50" step="1" list="tickmarks">
+                    </div>
+                </div>
+                <div class="button-wrapper">
+                    <div type="button" class="button" onclick="play()">play</div>
+                    <div type="button" class="button" onclick="pause()">pause</div>
+                    <div type="button" class="button" onclick="reset()">reset</div>
+                </div>
+                <div class="rule-wrapper">
+                    <div>Born Rule</div>
+                    <div class="check-pair-container">
+                        <div class="check-pair">
+                            <input type="checkbox" id="checkBorn0" onclick="updateBornRule(0)">
+                            <label for="checkBorn0">0</label>
+                        </div>
+                        <div class="check-pair">
+                            <input type="checkbox" id="checkBorn1" onclick="updateBornRule(1)">
+                            <label for="checkBorn1">1</label>
+                        </div>
+                        <div class="check-pair">
+                            <input type="checkbox" id="checkBorn2" onclick="updateBornRule(2)">
+                            <label for="checkBorn2">2</label>
+                        </div>
+                        <div class="check-pair">
+                            <input type="checkbox" id="checkBorn3" onclick="updateBornRule(3)">
+                            <label for="checkBorn3">3</label>
+                        </div>
+                        <div class="check-pair">
+                            <input type="checkbox" id="checkBorn4" onclick="updateBornRule(4)">
+                            <label for="checkBorn4">4</label>
+                        </div>
+                        <div class="check-pair">
+                            <input type="checkbox" id="checkBorn5" onclick="updateBornRule(5)">
+                            <label for="checkBorn5">5</label>
+                        </div>
+                        <div class="check-pair">
+                            <input type="checkbox" id="checkBorn6" onclick="updateBornRule(6)">
+                            <label for="checkBorn6">6</label>
+                        </div>
+                        <div class="check-pair">
+                            <input type="checkbox" id="checkBorn7" onclick="updateBornRule(7)">
+                            <label for="checkBorn7">7</label>
+                        </div>
+                        <div class="check-pair">
+                            <input type="checkbox" id="checkBorn8" onclick="updateBornRule(8)">
+                            <label for="checkBorn8">8</label>
+                        </div>
+                        <div class="check-pair">
+                            <input type="checkbox" id="checkBorn9" onclick="updateBornRule(9)">
+                            <label for="checkBorn9">9</label>
+                        </div>
+                    </div>
+                </div>
+                <div class="rule-wrapper">
+                    <div>Survive Rule</div>
+                    <div class="check-pair-container">
+                        <div class="check-pair">
+                            <input type="checkbox" id="checkSurvive0" onclick="updateSurviveRule(0)">
+                            <label for="checkSurvive0">0</label>
+                        </div>
+                        <div class="check-pair">
+                            <input type="checkbox" id="checkSurvive1" onclick="updateSurviveRule(1)">
+                            <label for="checkSurvive1">1</label>
+                        </div>
+                        <div class="check-pair">
+                            <input type="checkbox" id="checkSurvive2" onclick="updateSurviveRule(2)">
+                            <label for="checkSurvive2">2</label>
+                        </div>
+                        <div class="check-pair">
+                            <input type="checkbox" id="checkSurvive3" onclick="updateSurviveRule(3)">
+                            <label for="checkSurvive3">3</label>
+                        </div>
+                        <div class="check-pair">
+                            <input type="checkbox" id="checkSurvive4" onclick="updateSurviveRule(4)">
+                            <label for="checkSurvive4">4</label>
+                        </div>
+                        <div class="check-pair">
+                            <input type="checkbox" id="checkSurvive5" onclick="updateSurviveRule(5)">
+                            <label for="checkSurvive5">5</label>
+                        </div>
+                        <div class="check-pair">
+                            <input type="checkbox" id="checkSurvive6" onclick="updateSurviveRule(6)">
+                            <label for="checkSurvive6">6</label>
+                        </div>
+                        <div class="check-pair">
+                            <input type="checkbox" id="checkSurvive7" onclick="updateSurviveRule(7)">
+                            <label for="checkSurvive7">7</label>
+                        </div>
+                        <div class="check-pair">
+                            <input type="checkbox" id="checkSurvive8" onclick="updateSurviveRule(8)">
+                            <label for="checkSurvive8">8</label>
+                        </div>
+                        <div class="check-pair">
+                            <input type="checkbox" id="checkSurvive9" onclick="updateSurviveRule(9)">
+                            <label for="checkSurvive9">9</label>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <link rel=stylesheet href="./cellularAutomata.css">
+    <script src="main.mjs"></script>
+</body>
+</html>

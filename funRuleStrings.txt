@@ -1,0 +1,9 @@
+Format:
+B|S
+
+Conway's Game of Life:
+2|23
+
+Stable yet decaying
+357|135
+

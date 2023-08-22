@@ -7,3 +7,5 @@ Conway's Game of Life:
 Stable yet decaying
 357|135
 
+Cross Explosion
+03|123

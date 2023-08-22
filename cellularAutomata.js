@@ -6,9 +6,9 @@ changes in defineColorGradient()
 
 change rulestep to account for more than dead/alive
 
-Play/Pause button should be the same button
-
 Make a delay slider, nice feature to see the speed change realtime
+
+Make it so that I can plop my points with my cursor
 */
 
 //----------------------------------------------------------------------
@@ -45,18 +45,20 @@ let columns = 80;
 let xUnit = c.width/rows;
 let yUnit = c.height/columns;
 
-let delay = 10; //milliseconds
+//let delay = 16; //milliseconds
+let delay = document.getElementById("sliderDelay")?.value ?? 17; //problem is it doesn't get it at runtime
 
-let density = document.getElementById("slider")?.value ?? 50; //problem is it doesn't get it at runtime
+let density = document.getElementById("sliderDensity")?.value ?? 50; //problem is it doesn't get it at runtime
 let densityValue = document.getElementById("densityValue");
 densityValue.innerHTML = density;
 
 let game = null;
 
+let playPauseText = document.getElementById("playPause");
+
 //----------------------------------------------------------------------
 //FUNCTIONS
 
-//fix this terrible function
 function defineColorGradient(r,g,b){
     if (stateColor.length > 1){
         console.log('stateColor is already defined');
@@ -66,35 +68,6 @@ function defineColorGradient(r,g,b){
             stateColor.push(`rgb(${r[0]+r[1]*i*cDelta},${g[0]+g[1]*i*cDelta},${b[0]+b[1]*i*cDelta})`);
         }
     }
-}
-
-function createGridRandom(density, rows, columns){
-    for (var i = 0; i < rows; i++){
-        gridArray[i] = new Array(columns);
-        for (var k = 0; k < columns; k++){
-            let num = Math.random() + (density/100) - 0.5;
-            if (num > 0.5){
-                gridArray[i][k]  = stateColor[1];
-            }
-            else {
-                gridArray[i][k]  = stateColor[0];
-            }
-        }
-    }
-}
-
-function checkLiveNeighborsAt(row, column){
-    let aliveCount = 8; 
-
-    for (var i = -1; i < 2; i++){
-        for (var k = -1; k < 2; k++){
-            if ((gridArray[row+i] == undefined || gridArray[row+i][column+k] == undefined || gridArray[row+i][column+k] == stateColor[0]) && (i != 0 || k != 0)){
-                aliveCount--;
-            }
-        }
-    }
-
-    return aliveCount;
 }
 
 function drawGrid(){
@@ -129,6 +102,35 @@ function drawGrid(){
             t.stroke();
         }
     }
+}
+
+function createGridRandom(density, rows, columns){
+    for (var i = 0; i < rows; i++){
+        gridArray[i] = new Array(columns);
+        for (var k = 0; k < columns; k++){
+            let num = Math.random() + (density/100) - 0.5;
+            if (num > 0.5){
+                gridArray[i][k]  = stateColor[1];
+            }
+            else {
+                gridArray[i][k]  = stateColor[0];
+            }
+        }
+    }
+}
+
+function checkLiveNeighborsAt(row, column){
+    let aliveCount = 8; 
+
+    for (var i = -1; i < 2; i++){
+        for (var k = -1; k < 2; k++){
+            if ((gridArray[row+i] == undefined || gridArray[row+i][column+k] == undefined || gridArray[row+i][column+k] == stateColor[0]) && (i != 0 || k != 0)){
+                aliveCount--;
+            }
+        }
+    }
+
+    return aliveCount;
 }
 
 function ruleStep(B, S){
@@ -267,6 +269,17 @@ function play(){
     }
 }
 
+function playPause(){
+    if (game){
+        clearInterval(game);
+        game = null;
+        playPauseText.innerHTML = "play";
+    } else {
+        game = setInterval(update, delay);
+        playPauseText.innerHTML = "pause";
+    }
+}
+
 function step()
 {
     update();
@@ -293,13 +306,15 @@ function displayColors(){
 
 //----------------------------------------------------------------------
 //LISTENERS
-document.getElementById("slider").addEventListener("input", e => {density = e.target.value; document.getElementById("densityValue").innerHTML = density});
+document.getElementById("sliderDensity").addEventListener("input", e => {density = e.target.value; document.getElementById("densityValue").innerHTML = density});
+document.getElementById("sliderDelay").addEventListener("input", e => {delay = e.target.value; document.getElementById("delayValue").innerHTML = delay});
 
 //----------------------------------------------------------------------
 //MAIN
 
 //yellow to blue
-defineColorGradient([255,-1],[255,0],[0,1]);
+//defineColorGradient([255,-1],[255,0],[0,1]);
+defineColorGradient([255,0],[255,0],[0,0]);
 
 //setup grid
 reset()

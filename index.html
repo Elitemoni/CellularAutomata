@@ -6,21 +6,28 @@
     <title>Cellular Automata</title>
 </head>
 <body>
-    <!-- <div>Awesome Cellular Automata</div> -->
     <div class="everything">
         <canvas id="gridCanvas" width= "800px" height= "800px"></canvas>
         <div class="settings-wrapper">
             <div class="settings">
                 <div class="slider-wrapper">
-                    <div id="densityText">Density</div>
-                    <div id="densityValue">0</div>
-                    <div class="slider">
-                        <input type="range" id="slider" min="0" max="100" value="50" step="1" list="tickmarks">
+                    <div class="density-wrapper">
+                        <div id="densityText">Density</div>
+                        <div id="densityValue">0</div>
+                        <div class="slider">
+                            <input type="range" id="sliderDensity" min="0" max="100" value="50" step="1" list="tickmarks">
+                        </div>
+                    </div>
+                    <div class="delay-wrapper">
+                        <div id="delayText">Delay</div>
+                        <div id="delayValue">0</div>
+                        <div class="slider">
+                            <input type="range" id="sliderDelay" min="0" max="100" value="50" step="1" list="tickmarks">
+                        </div>
                     </div>
                 </div>
                 <div class="button-wrapper">
-                    <div type="button" class="button" onclick="play()">play</div>
-                    <div type="button" class="button" onclick="pause()">pause</div>
+                    <div type="button" class="button" id="playPause" onclick="playPause()">play</div>
                     <div type="button" class="button" onclick="reset()">reset</div>
                 </div>
                 <div class="rule-wrapper">

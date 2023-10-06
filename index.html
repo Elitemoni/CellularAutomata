@@ -12,23 +12,25 @@
             <div class="settings">
                 <div class="slider-wrapper">
                     <div class="density-wrapper">
-                        <div id="densityText">Density</div>
-                        <div id="densityValue">0</div>
+                        <div class="slider-text" id="densityText">Density</div>
+                        <div class="slider-value" id="densityValue">0</div>
                         <div class="slider">
                             <input type="range" id="sliderDensity" min="0" max="100" value="50" step="1" list="tickmarks">
                         </div>
                     </div>
+                </div>
+                <div class="slider-wrapper">
                     <div class="delay-wrapper">
-                        <div id="delayText">Delay</div>
-                        <div id="delayValue">0</div>
+                        <div class="slider-text" id="delayText">Delay</div>
+                        <div class="slider-value" id="delayValue">0</div>
                         <div class="slider">
                             <input type="range" id="sliderDelay" min="0" max="100" value="50" step="1" list="tickmarks">
                         </div>
                     </div>
                 </div>
                 <div class="button-wrapper">
-                    <div type="button" class="button" id="playPause" onclick="playPause()">play</div>
-                    <div type="button" class="button" onclick="reset()">reset</div>
+                    <div type="button" class="button" id="playPause" onmousedown="playPause()">play</div>
+                    <div type="button" class="button" onmousedown="reset()">reset</div>
                 </div>
                 <div class="rule-wrapper">
                     <div>Born Rule</div>

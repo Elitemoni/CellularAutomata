@@ -1,16 +1,3 @@
-/*
-Todo
-
-Define better way to determine how each rgb 
-changes in defineColorGradient()
-
-change rulestep to account for more than dead/alive
-
-Make a delay slider, nice feature to see the speed change realtime
-
-Make it so that I can plop my points with my cursor
-*/
-
 //----------------------------------------------------------------------
 //VARIABLES
 

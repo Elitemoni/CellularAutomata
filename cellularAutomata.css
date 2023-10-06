@@ -1,3 +1,7 @@
+root {
+
+}
+
 * {
   margin: 0;
   padding: 0;
@@ -37,17 +41,22 @@ body {
   background-color:rgb(220, 200, 180);
 }
 
-.slider-wrapper:hover {
+/* .slider:hover + .delay-slider{
   background-color: rgb(200, 180, 160);
-}
+  background-color: black;
+} */
 
-.slider-wrapper:active {
+/* .slider-wrapper:active {
   background-color: rgb(80, 60, 40);
-}
+} */
 
-.slider-wrapper:active #densityText, .slider-wrapper:active #densityValue {
+/* .slider-wrapper:active #densityText, .slider-wrapper:active #densityValue {
   color: white;
-}
+} */
+
+/* .slider-wrapper:active .slider-text .slider-value {
+  color: white;
+} */
 
 .slider {
   display: flex;

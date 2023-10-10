@@ -1,5 +1,7 @@
-root {
-
+:root {
+  --color-unSelected: rgb(220, 200, 180);
+  --color-hover: rgb(200, 180, 160);
+  --color-active: rgb(80, 60, 40);
 }
 
 * {
@@ -38,25 +40,30 @@ body {
 .settings {
   display: flex;
   flex-direction: column;
-  background-color:rgb(220, 200, 180);
+  background-color: var(--color-unSelected);
 }
 
-/* .slider:hover + .delay-slider{
-  background-color: rgb(200, 180, 160);
+/* .slider-wrapper:has(.slider:has(:hover)) {
+  background-color: var(--color-hover);
+}
+
+.slider-wrapper:has(.slider:has(input:active)) {
+  background-color: var(--color-active);
+} */
+
+/* .slider-value + .slider:has(:active) {
   background-color: black;
+  color: white
 } */
 
-/* .slider-wrapper:active {
-  background-color: rgb(80, 60, 40);
-} */
-
-/* .slider-wrapper:active #densityText, .slider-wrapper:active #densityValue {
+.active {
+  background-color: var(--color-active);
   color: white;
-} */
+}
 
-/* .slider-wrapper:active .slider-text .slider-value {
+.slider-text-active, .slider-value-active {
   color: white;
-} */
+}
 
 .slider {
   display: flex;
@@ -64,32 +71,23 @@ body {
   justify-content: center;
 }
 
-#sliderDensity,#sliderDelay {
+#sliderDensity, #sliderDelay {
   flex: 0.9;
 }
-
-/* figure out how to get rid of slider outline box */
-/* .slider:checked {
-  display: none;
-} */
-
-/* .slider:active {
-  outline: none;
-} */
 
 .button {
   position: relative;
   display: block;
-  background-color:rgb(220, 200, 180);
+  background-color: var(--color-unSelected);
   padding: 16px 32px;
 }
 
 .button:hover {
-  background-color: rgb(200, 180, 160);
+  background-color: var(--color-hover);
 }
 
 .button:active {
-  background-color: rgb(80, 60, 40);
+  background-color: var(--color-active);
   color: white;
 }
 
@@ -115,7 +113,16 @@ label {
   font-size: 24px;
 }
 
+input[type="checkbox"]:hover + label {
+  background-color: var(--color-hover);
+  cursor: pointer;
+}
+
 input[type="checkbox"]:checked + label {
-  background-color: rgb(80, 60, 40);
+  background-color: var(--color-active);
   color: white;
+}
+
+.test {
+  background-color: green;
 }

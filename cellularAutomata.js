@@ -34,6 +34,8 @@ let yUnit = c.height/columns;
 
 //let delay = 16; //milliseconds
 let delay = document.getElementById("sliderDelay")?.value ?? 17; //problem is it doesn't get it at runtime
+let delayValue = document.getElementById('delayValue');
+delayValue.innerHTML = delay;
 
 let density = document.getElementById("sliderDensity")?.value ?? 50; //problem is it doesn't get it at runtime
 let densityValue = document.getElementById("densityValue");
@@ -292,10 +294,30 @@ function displayColors(){
 }
 
 //----------------------------------------------------------------------
-//LISTENERS
+//SLIDERS
 document.getElementById("sliderDensity").addEventListener("input", e => {density = e.target.value; document.getElementById("densityValue").innerHTML = density});
 document.getElementById("sliderDelay").addEventListener("input", e => {delay = e.target.value; document.getElementById("delayValue").innerHTML = delay});
 
+//----------------------------------------------------------------------
+//CSS
+function activeWrapper(e){
+    e.target.closest('.slider-wrapper').classList.add('active');
+    e.target.closest('.slider').previousElementSibling.classList.add('active');
+    e.target.closest('.slider').previousElementSibling.previousElementSibling.classList.add('active');
+}
+
+function notActiveWrapper(e){
+    e.target.closest('.slider-wrapper').classList.remove('active');
+    e.target.closest('.slider').previousElementSibling.classList.remove('active');
+    e.target.closest('.slider').previousElementSibling.previousElementSibling.classList.remove('active');
+}
+
+document.getElementById('sliderDensity').addEventListener("mousedown", e => activeWrapper(e));
+document.getElementById('sliderDensity').addEventListener("mouseup", e => notActiveWrapper(e));
+
+document.getElementById('sliderDelay').addEventListener("mousedown", e => activeWrapper(e));
+document.getElementById('sliderDelay').addEventListener("mouseup", e => notActiveWrapper(e));
+document.getElementById('sliderDelay').addEventListener("mouseup", e => setDelay(e.target.value));
 //----------------------------------------------------------------------
 //MAIN
 
